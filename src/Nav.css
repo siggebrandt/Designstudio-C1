@@ -1,0 +1,8 @@
+nav {
+  min-height: 5vh;
+  background-color: #7bc47f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
