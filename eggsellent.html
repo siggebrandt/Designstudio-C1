@@ -1,141 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Eggsellent Eggs</title>
     <meta charset="utf-8" />
-    <style>
-      h1 {
-        background: darkslategray;
-        color: beige;
-        padding: 20px;
-        margin: 80px;
-        border-radius: 6px;
-        width: 50%;
-      }
-
-      .jumping-animation {
-        animation-name: jumping;
-        animation-duration: 0.5s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-      }
-
-      @keyframes jumping {
-        0% {
-          translate: 30px 50px;
-        }
-
-        25% {
-          background-color: yellow;
-        }
-
-        50% {
-          translate: 10px 10px;
-        }
-
-        100% {
-          translate: 100px 50px;
-        }
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eggsellent Eggs</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-
   <body>
-    <h1 class="jumping-animation">Demo</h1>
+    <nav>
+      <img src="logo.png" alt="Eggsellent logo" />
+      <p>Eggsellent</p>
+    </nav>
 
-    <ul></ul>
+    <div id="app">
+      <div id="appTimer">
+        <div id="eggImageContainer">
+          <img id="eggImage" src="egg.png" alt="egg" />
+        </div>
+      </div>
 
-    <div>
-      <button id="start-all">Start All</button>
-      <button id="pause-all">Pause All</button>
-      <button id="cancel-all">Cancel All</button>
+      <div id="appCountdown">
+        <p id="cookingText">Cooking Time:</p>
+        <p id="countdownText">00:00</p>
+      </div>
+
+      <div id="appButtons">
+        <div id="buttonsSize">
+          <button class="cookingButton">S</button>
+          <button class="cookingButton">M</button>
+          <button class="cookingButton">L</button>
+        </div>
+
+        <div id="buttonsTemp">
+          <button class="cookingButton">soft</button>
+          <button class="cookingButton">medium</button>
+          <button class="cookingButton">hard</button>
+        </div>
+
+        <div id="buttonsAction">
+          <button id="startButton">start</button>
+        </div>
+      </div>
     </div>
 
-    <input type="number" value="5" />
-    <button id="add-timer-button">Add Timer</button>
-
-    <script>
-      let startAllButton = document.querySelector("#start-all");
-      let pauseAllButton = document.querySelector("#pause-all");
-      let cancelAllButton = document.querySelector("#cancel-all");
-      let timerInitialValue = document.querySelector("input");
-      let addTimerButton = document.getElementById("add-timer-button");
-
-      let running = false;
-      let timerIds = [];
-
-      addTimerButton.addEventListener("click", function () {
-        let ms = 100;
-        let duration = Number(timerInitialValue.value) * 1000;
-
-        let timerContainer = document.createElement("li");
-        let timerText = document.createElement("p");
-        timerText.textContent = `Timer for ${duration / 1000}s`;
-        let timerStartButton = document.createElement("button");
-        timerStartButton.textContent = "Start";
-        let timerPauseButton = document.createElement("button");
-        timerPauseButton.textContent = "Pause";
-        let timerCancelButton = document.createElement("button");
-        timerCancelButton.textContent = "Cancel";
-
-        let timerId = setInterval(function () {
-          if (running) {
-            if (duration <= 0) {
-              console.log(`Timer with id ${timerId} finished!`);
-              clearInterval(timerId);
-            }
-
-            console.log(`Time left ${duration / 1000}s`);
-
-            timerText.textContent = `${duration / 1000}s`;
-            duration = duration - 100;
-          } else {
-            // Do nothing...
-          }
-        }, ms);
-
-        timerIds.push(timerId);
-
-        timerStartButton.addEventListener("click", function () {
-          running = true;
-          console.log(`Started a timer with ID ${timerId}`);
-        });
-
-        timerPauseButton.addEventListener("click", function () {
-          running = false;
-          console.log(`Paused a timer with ID ${timerId}`);
-        });
-
-        timerCancelButton.addEventListener("click", function () {
-          console.log(`Cancel the timer with ID ${timerId}`);
-          clearInterval(timerId);
-          timerContainer.remove();
-        });
-
-        timerContainer.appendChild(timerText);
-        // timerContainer.appendChild(timerStartButton);
-        // timerContainer.appendChild(timerPauseButton);
-        // timerContainer.appendChild(timerCancelButton);
-        document.querySelector("ul").appendChild(timerContainer);
-      });
-
-      startAllButton.addEventListener("click", function () {
-        running = true;
-      });
-      pauseAllButton.addEventListener("click", function () {
-        running = false;
-      });
-      cancelAllButton.addEventListener("click", function () {
-        for (let timerId of timerIds) {
-          clearInterval(timerId);
-        }
-
-        timerIds = [];
-
-        for (let li of document.querySelectorAll("li")) {
-          li.remove();
-        }
-      });
-    </script>
+    <!-- JS -->
+    <script src="script.js"></script>
   </body>
 </html>

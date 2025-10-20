@@ -1,0 +1,214 @@
+h1 {
+  background: darkslategray;
+  color: beige;
+  padding: 20px;
+  margin: 80px;
+  border-radius: 6px;
+  width: 50%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", system-ui;
+  border: 0;
+}
+
+body {
+  background-color: #f7f7f2;
+  max-width: 550px;
+  margin: auto;
+  border: 1px solid;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  background-color: #899878;
+}
+
+nav p {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 38px;
+  margin: 4px;
+}
+
+nav img {
+  margin: 5px;
+}
+
+#app {
+  height: 90vh;
+}
+
+#appTimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+}
+
+#eggImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+#eggImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 25px;
+}
+
+.egg-blur {
+  filter: blur(6px);
+  transition: filter 0.3s;
+  max-width: 240px;
+  max-height: 240px;
+}
+
+#appCountdown {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+#cookingText {
+  font-size: 18px;
+}
+
+#countdownText {
+  font-size: 36px;
+}
+
+#appButtons {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+#buttonsSize,
+#buttonsTemp {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 25px 10px;
+}
+
+#buttonsAction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 25px 10px;
+  flex: 1 1 auto;
+  align-self: stretch;
+  flex-direction: column;
+}
+
+.cookingButton {
+  flex: 1;
+  min-width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  border: 2px solid #e4e6c3;
+  background-color: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.cookingButton.selected {
+  background-color: #e4e6c3;
+  border-color: rgba(0, 0, 0, 0.55);
+  border-width: 1px;
+  color: #222;
+}
+
+#startButton,
+#pauseButton,
+#continueButton,
+#stopButton,
+#completeButton {
+  background-color: #d4d79f;
+  width: 80%;
+  height: 60px;
+  border-radius: 15px;
+  border: 1px solid #33333385;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  margin: 0 auto;
+  display: block;
+}
+
+#pauseButton,
+#stopButton {
+  background-color: #222725;
+  color: white;
+}
+
+#continueButton {
+  margin-bottom: 10px;
+}
+
+#completeButton {
+  background-color: #bada55;
+  color: #222;
+}
+
+#alarmEmoji.shake {
+  animation: shake 0.7s infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-2px, 1px) rotate(-7deg);
+  }
+  20% {
+    transform: translate(2px, -1px) rotate(7deg);
+  }
+  30% {
+    transform: translate(-2px, 2px) rotate(-7deg);
+  }
+  40% {
+    transform: translate(2px, 1px) rotate(7deg);
+  }
+  50% {
+    transform: translate(-1px, -2px) rotate(-7deg);
+  }
+  60% {
+    transform: translate(2px, 1px) rotate(7deg);
+  }
+  70% {
+    transform: translate(-2px, 0px) rotate(-7deg);
+  }
+  80% {
+    transform: translate(2px, 1px) rotate(7deg);
+  }
+  90% {
+    transform: translate(-1px, -1px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
