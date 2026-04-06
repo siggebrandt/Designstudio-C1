@@ -3,7 +3,7 @@
 
 ## Description
 
-A simple Connect 4 game built with HTML, CSS & JavaScript.
+A simple timer for cooking eggs built with HTML, CSS & JavaScript.
 
 ## Presentation
 
